@@ -1,8 +1,11 @@
-name: discord-message
-description: Connects Github to Discord
+name: Discord Message
+description: Send a message to Discord
 inputs:
   webhookUrl:
-    description: "A discord webhook URL"
+    description: "A Discord webhook URL"
+    required: true
+  message:
+    description: "A message to send to Discord"
     required: true
 runs:
   using: node20
