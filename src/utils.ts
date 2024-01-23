@@ -35,7 +35,7 @@ export function getConfiguration(): Configuration {
   return {
     webhookUrl: input("webhookUrl"),
     message: input("message"),
-    username: input("username", false, "Not a bot"),
+    username: input("username", false, "GitHub"),
     avatar: input(
       "username",
       false,

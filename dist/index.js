@@ -27103,7 +27103,7 @@ function getConfiguration() {
     return {
         webhookUrl: input("webhookUrl"),
         message: input("message"),
-        username: input("username", false, "Not a bot"),
+        username: input("username", false, "GitHub"),
         avatar: input("username", false, "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"),
     };
 }
