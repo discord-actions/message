@@ -27059,6 +27059,8 @@ function createMessage(message) {
     return {
         content: message,
         attachments: [],
+        username: "Not a Bot",
+        avatar_url: "https://raw.githubusercontent.com/jackall3n/discord-message/main/images/avatar.png",
     };
 }
 function sendMessage() {
