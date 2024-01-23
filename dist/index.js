@@ -24716,15 +24716,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const core_1 = __importDefault(__nccwpck_require__(9093));
+const core_1 = __nccwpck_require__(9093);
 function main() {
     return __awaiter(this, void 0, void 0, function* () {
         console.log("github->discord");
-        const webhookUrl = core_1.default.getInput("webhookUrl", {
+        const webhookUrl = (0, core_1.getInput)("webhookUrl", {
             trimWhitespace: true,
         });
         console.log({ webhookUrl });
