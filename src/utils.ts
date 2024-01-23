@@ -15,7 +15,7 @@ export function input(name: Input, required = true, defaultValue = "") {
     required,
   });
 
-  return value ?? defaultValue;
+  return value || defaultValue;
 }
 
 export function createMessage(
