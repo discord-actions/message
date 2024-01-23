@@ -14,6 +14,7 @@ function createMessage(message: string) {
   return {
     content: message,
     attachments: [],
+    username: "Not a Bot",
   };
 }
 
