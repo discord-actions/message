@@ -1,5 +1,8 @@
 name: Discord Message
 description: Send a message to Discord
+branding:
+  icon: message-square
+  color: purple
 inputs:
   webhookUrl:
     description: "A Discord webhook URL"
