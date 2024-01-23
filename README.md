@@ -13,6 +13,19 @@ with:
   message: "Hello, from Github"
 ```
 
+
+## Specify a username and avatar
+
+```yaml
+name: Notify Discord
+uses: jackall3n/discord-message@v1.7
+with:
+  webhookUrl: ${{ secrets.DISCORD_WEBHOOK_URL }}
+  message: "Hello, from Github"
+  username: "Github",
+  avatar: "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+```
+
 ## On Success
 
 ```yaml

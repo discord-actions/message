@@ -27029,7 +27029,7 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 949:
+/***/ 2694:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -27049,33 +27049,19 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const core_1 = __nccwpck_require__(9093);
 const axios_1 = __importDefault(__nccwpck_require__(2153));
-function input(name, required = true) {
-    return (0, core_1.getInput)(name, {
-        trimWhitespace: true,
-        required,
-    });
-}
-function createMessage(message) {
-    return {
-        content: message,
-        attachments: [],
-        username: "Not a Bot",
-        avatar_url: "https://raw.githubusercontent.com/jackall3n/discord-message/main/images/avatar.png",
-    };
-}
-function sendMessage() {
+const utils_1 = __nccwpck_require__(442);
+function sendMessage(configuration) {
     return __awaiter(this, void 0, void 0, function* () {
-        console.log("> Messaging discord...");
-        const webhookUrl = input("webhookUrl");
-        const message = input("message");
-        const payload = createMessage(message);
-        yield axios_1.default.post(webhookUrl, payload);
+        (0, core_1.debug)("Messaging discord...");
+        const payload = (0, utils_1.createMessage)(configuration.message, configuration.username, configuration.avatar);
+        yield axios_1.default.post(configuration.webhookUrl, payload);
     });
 }
 function main() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            yield sendMessage();
+            const configuration = (0, utils_1.getConfiguration)();
+            yield sendMessage(configuration);
             (0, core_1.setOutput)("result", "message send");
         }
         catch (e) {
@@ -27084,6 +27070,44 @@ function main() {
     });
 }
 main().then();
+
+
+/***/ }),
+
+/***/ 442:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.getConfiguration = exports.createMessage = exports.input = void 0;
+const core_1 = __nccwpck_require__(9093);
+function input(name, required = true, defaultValue = "") {
+    const value = (0, core_1.getInput)(name, {
+        trimWhitespace: true,
+        required,
+    });
+    return value !== null && value !== void 0 ? value : defaultValue;
+}
+exports.input = input;
+function createMessage(message, username, avatar_url) {
+    return {
+        content: message,
+        attachments: [],
+        username,
+        avatar_url,
+    };
+}
+exports.createMessage = createMessage;
+function getConfiguration() {
+    return {
+        webhookUrl: input("webhookUrl"),
+        message: input("message"),
+        username: input("username", false, "Not a bot"),
+        avatar: input("username", false, "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"),
+    };
+}
+exports.getConfiguration = getConfiguration;
 
 
 /***/ }),
@@ -33331,7 +33355,7 @@ module.exports = JSON.parse('{"application/1d-interleaved-parityfec":{"source":"
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module is referenced by other modules so it can't be inlined
-/******/ 	var __webpack_exports__ = __nccwpck_require__(949);
+/******/ 	var __webpack_exports__ = __nccwpck_require__(2694);
 /******/ 	module.exports = __webpack_exports__;
 /******/ 	
 /******/ })()

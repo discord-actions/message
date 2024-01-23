@@ -10,6 +10,10 @@ inputs:
   message:
     description: "A message to send to Discord"
     required: true
+  username:
+    description: "A username for the message"
+  avatar:
+    description: "An avatar for the message"
 outputs:
   result:
     description: "An output for the message"
