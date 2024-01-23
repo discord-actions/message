@@ -10,6 +10,9 @@ inputs:
   message:
     description: "A message to send to Discord"
     required: true
+outputs:
+  result:
+    description: "An output for the message"
 runs:
   using: node20
   main: dist/index.js

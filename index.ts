@@ -1,14 +1,41 @@
-import { getInput } from "@actions/core";
+import { getInput, setOutput, setFailed } from "@actions/core";
 import github from "@actions/github";
 
-async function main() {
-  console.log("github->discord");
+import axios from "axios";
 
-  const webhookUrl = getInput("webhookUrl", {
+function input(name: "webhookUrl" | "message", required = true) {
+  return getInput(name, {
     trimWhitespace: true,
+    required,
   });
+}
 
-  console.log({ webhookUrl });
+function createMessage(message: string) {
+  return {
+    content: message,
+    attachments: [],
+  };
+}
+
+async function sendMessage() {
+  console.log("> Messaging discord...");
+
+  const webhookUrl = input("webhookUrl");
+  const message = input("message");
+
+  const payload = createMessage(message);
+
+  await axios.post(webhookUrl, payload);
+}
+
+async function main() {
+  try {
+    await sendMessage();
+
+    setOutput("result", "message send");
+  } catch (e) {
+    setFailed(e);
+  }
 }
 
 main().then();
