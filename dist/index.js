@@ -27087,7 +27087,7 @@ function input(name, required = true, defaultValue = "") {
         trimWhitespace: true,
         required,
     });
-    return value !== null && value !== void 0 ? value : defaultValue;
+    return value || defaultValue;
 }
 exports.input = input;
 function createMessage(message, username, avatar_url) {
