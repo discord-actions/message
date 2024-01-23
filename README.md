@@ -22,7 +22,7 @@ uses: jackall3n/discord-message@v2
 with:
   webhookUrl: ${{ secrets.DISCORD_WEBHOOK_URL }}
   message: "Hello, from Github"
-  username: "Github",
+  username: "Github"
   avatar: "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
 ```
 
