@@ -10,6 +10,8 @@ jobs:
     name: main
     runs-on: ubuntu-latest
     steps:
+      - uses: action/checkout@v4
+
       - name: Notify Discord
         uses: ./
         with:
