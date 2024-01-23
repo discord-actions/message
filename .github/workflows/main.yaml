@@ -1,0 +1,15 @@
+name: main
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  main:
+    name: main
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notify Discord
+        uses: jackall3n/discord-github@latest
+

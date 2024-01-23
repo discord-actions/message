@@ -1,0 +1,9 @@
+name: Discord Github
+description: Connects Github to Discord
+inputs:
+  webhookUrl:
+    description: "A discord webhook URL"
+    required: true
+runs:
+  using: node20
+  main: dist/index.js
