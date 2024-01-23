@@ -11,5 +11,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Notify Discord
-        uses: jackall3n/discord-github@latest
-
+        uses: jackall3n/discord-github@v1
