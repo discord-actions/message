@@ -7,7 +7,7 @@ Simply sends a message to Discord.
 
 ```yaml
 name: Notify Discord
-uses: jackall3n/discord-message@v2
+uses: discord-actions/message@v2
 with:
   webhookUrl: ${{ secrets.DISCORD_WEBHOOK_URL }}
   message: "Hello, from Github"
@@ -18,7 +18,7 @@ with:
 
 ```yaml
 name: Notify Discord
-uses: jackall3n/discord-message@v2
+uses: discord-actions/message@v2
 with:
   webhookUrl: ${{ secrets.DISCORD_WEBHOOK_URL }}
   message: "Hello, from Github"
@@ -34,7 +34,7 @@ jobs:
     steps:
       - name: Notify Discord
         if: success()
-        uses: jackall3n/discord-message@v2
+        uses: discord-actions/message@v2
         with:
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK_URL }}
           message: "Hello, from Github"
@@ -48,7 +48,7 @@ jobs:
     steps:
       - name: Notify Discord
         if: failure()
-        uses: jackall3n/discord-message@v2
+        uses: discord-actions/message@v2
         with:
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK_URL }}
           message: "Hello, from Github"
@@ -62,7 +62,7 @@ jobs:
     steps:
       - name: Notify Discord
         if: ${{ always() && contains(needs.*.result, 'failure') }}
-        uses: jackall3n/discord-message@v2
+        uses: discord-actions/message@v2
         with:
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK_URL }}
           message: "Hello, from Github"
