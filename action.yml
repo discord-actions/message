@@ -1,4 +1,4 @@
-name: discord
+name: discord-message
 description: Connects Github to Discord
 inputs:
   webhookUrl:
