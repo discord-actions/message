@@ -1,10 +1,10 @@
-import core from "@actions/core";
+import { getInput } from "@actions/core";
 import github from "@actions/github";
 
 async function main() {
   console.log("github->discord");
 
-  const webhookUrl = core.getInput("webhookUrl", {
+  const webhookUrl = getInput("webhookUrl", {
     trimWhitespace: true,
   });
 
